@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1
+services:
+  users-service:
+    build:
+      dockerfile: deployment/Dockerfile
+      context: .
+    ports:
+      - 4001:4001
+
+    restart: always

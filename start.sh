@@ -17,4 +17,4 @@ PRODUCTS_PID=$!
 
 sleep 1
 
-node gateway/index.js
+node web/gateway/index.js

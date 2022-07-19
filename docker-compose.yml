@@ -2,9 +2,43 @@
 services:
   users-service:
     build:
-      dockerfile: deployment/Dockerfile
-      context: .
+      dockerfile: ./Dockerfile
+      context: ./users
     ports:
       - 4001:4001
-
+    environment:
+      - PORT=4001
+      - PG_DB=ecommerce_api
+      - PG_PASSWORD=example
+      - PG_PORT=5432
+      - PG_USER=postgres
+    depends_on:
+      - db
     restart: always
+
+  projects-service:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./products
+    ports:
+      - 4002:4002
+    environment:
+      - PORT=4002
+      - PG_DB=ecommerce_api
+      - PG_PASSWORD=example
+      - PG_PORT=5432
+      - PG_USER=postgres
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ecommerce_api
+      POSTGRES_PASSWORD: example
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432

@@ -5,7 +5,7 @@ services:
       dockerfile: ./Dockerfile
       context: ./users
     ports:
-      - 4001:4001
+      - 4003:4003
     environment:
       - PORT=4001
       - PG_DB=ecommerce_api
@@ -16,7 +16,7 @@ services:
       - db
     restart: always
 
-  projects-service:
+  products-service:
     build:
       dockerfile: ./Dockerfile
       context: ./products

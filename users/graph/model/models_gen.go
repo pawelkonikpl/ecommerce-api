@@ -7,8 +7,10 @@ type NewUser struct {
 }
 
 type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID        string  `json:"id"`
+	Name      string  `json:"name"`
+	BirthDate *string `json:"birthDate"`
+	Street    *string `json:"street"`
 }
 
 func (User) IsEntity() {}

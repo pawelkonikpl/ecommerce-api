@@ -11,7 +11,7 @@ exec:
 federation:
   filename: graph/generated/federation.go
   package: generated
-
+  version: 2
 # Where should any generated models go?
 model:
   filename: graph/model/models_gen.go
@@ -42,7 +42,7 @@ resolver:
 # gqlgen will search for any type names in the schema in these go packages
 # if they match it will use them, otherwise it will generate them.
 autobind:
-#  - "github.com/pawelkonikpl/ecommerce-api/graph/model"
+#  - "github.com/pawelkonikpl/ecommerce-api/cart/graph/model"
 
 # This section declares type mapping between the GraphQL and go type systems
 #

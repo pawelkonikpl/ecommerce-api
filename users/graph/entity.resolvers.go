@@ -7,8 +7,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/pawelkonikpl/ecommerce-api/users/graph/generated"
-	"github.com/pawelkonikpl/ecommerce-api/users/graph/model"
+	"github.com/pawelkonikpl/ecommmerce-api/users/graph/generated"
+	"github.com/pawelkonikpl/ecommmerce-api/users/graph/model"
 )
 
 // FindUserByID is the resolver for the findUserByID field.

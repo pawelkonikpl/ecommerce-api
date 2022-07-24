@@ -2,9 +2,23 @@
 
 package model
 
+type NewProduct struct {
+	UserID string `json:"userId"`
+	Name   string `json:"name"`
+	Sku    string `json:"sku"`
+}
+
 type Product struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
+	Sku  string `json:"sku"`
 }
 
 func (Product) IsEntity() {}
+
+type User struct {
+	ID       string     `json:"id"`
+	Products []*Product `json:"products"`
+}
+
+func (User) IsEntity() {}

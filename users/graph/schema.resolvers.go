@@ -6,18 +6,19 @@ package graph
 import (
 	"context"
 	"fmt"
+	"log"
 
-	"github.com/pawelkonikpl/ecommerce-api/users/graph/generated"
-	"github.com/pawelkonikpl/ecommerce-api/users/graph/model"
+	"github.com/pawelkonikpl/ecommmerce-api/users/graph/generated"
+	"github.com/pawelkonikpl/ecommmerce-api/users/graph/model"
 )
 
 // CreateUser is the resolver for the createUser field.
 func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (*model.User, error) {
 	user := new(model.User)
 	user.Name = input.Name
-	_, err := r.DB.Model(user).Returning("*").Insert(user)
+	_, err := r.DB.Model(user).Insert()
 	if err != nil {
-		fmt.Printf("Cannot create user %s", err)
+		log.Printf("Cannot create user %s", err)
 		return nil, err
 	}
 	return user, nil

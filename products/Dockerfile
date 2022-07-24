@@ -2,11 +2,10 @@ FROM golang:1.18.4-alpine
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
-RUN go mod download
 
-COPY *.go ./
+COPY . ./
+
+RUN go mod download
 
 ENV PORT ${PORT}
 ENV PG_DB ${PG_DB}

@@ -5,11 +5,10 @@ package graph
 
 import (
 	"context"
-	"fmt"
 	"log"
 
-	"github.com/pawelkonikpl/ecommmerce-api/products/graph/generated"
-	"github.com/pawelkonikpl/ecommmerce-api/products/graph/model"
+	"github.com/pawelkonikpl/ecommerce-api/products/graph/generated"
+	"github.com/pawelkonikpl/ecommerce-api/products/graph/model"
 )
 
 // FindProductByID is the resolver for the findProductByID field.
@@ -21,11 +20,6 @@ func (r *entityResolver) FindProductByID(ctx context.Context, id string) (*model
 		return nil, err
 	}
 	return product, nil
-}
-
-// FindUserByID is the resolver for the findUserByID field.
-func (r *entityResolver) FindUserByID(ctx context.Context, id string) (*model.User, error) {
-	panic(fmt.Errorf("not implemented"))
 }
 
 // Entity returns generated.EntityResolver implementation.

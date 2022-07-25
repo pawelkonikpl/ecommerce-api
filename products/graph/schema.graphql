@@ -1,15 +1,16 @@
-type User @key(fields: "id") {
-  id: ID!
-  products: [Product]
-}
-
 
 type Product @key(fields: "id"){
   id: ID!
   name: String!
   sku: String!
-
+  createdAt: ID! @provides(fields: "name")
 }
+
+extend type User @key(fields: "id") {
+  id: ID! @external
+  name: String! @external
+}
+
 
 type Query {
   products: [Product!]!

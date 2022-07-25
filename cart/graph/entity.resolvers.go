@@ -5,20 +5,23 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
-	"github.com/pawelkonikpl/ecommerce-api/users/graph/generated"
-	"github.com/pawelkonikpl/ecommerce-api/users/graph/model"
+	"github.com/pawelkonikpl/ecommerce-api/cart/graph/generated"
+	"github.com/pawelkonikpl/ecommerce-api/cart/graph/model"
 )
+
+// FindCartByID is the resolver for the findCartByID field.
+func (r *entityResolver) FindCartByID(ctx context.Context, id string) (*model.Cart, error) {
+	cart := new(model.Cart)
+	cart.ID = "1"
+	cart.CartUser.ID = "1"
+	return cart, nil
+}
 
 // FindUserByID is the resolver for the findUserByID field.
 func (r *entityResolver) FindUserByID(ctx context.Context, id string) (*model.User, error) {
 	user := new(model.User)
-	err := r.DB.Model(user).Where("id = ?", id).Select()
-	if err != nil {
-		fmt.Printf("Cannot find user %s", err)
-		return nil, err
-	}
+	user.ID = "1"
 	return user, nil
 }
 

@@ -2,11 +2,31 @@
 #
 # https://gqlgen.com/getting-started/
 
-type Cart {
+extend type User @key(fields: "id") {
+  id: ID! @external
+  name: String! @external
+  carts: [Cart]
+}
+
+
+extend type User {
+  cartUser: User!
+}
+
+type Cart @key(fields: "id"){
   id: ID!
+  cartUser: User! @provides(fields: "name")
 }
 
 
 type Query {
   cart: [Cart!]!
+}
+
+input NewCart {
+  userId: ID!
+}
+
+type Mutation {
+  createCart(input: NewCart!): Cart!
 }

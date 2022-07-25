@@ -11,7 +11,7 @@ import (
 	"github.com/pawelkonikpl/ecommerce-api/cart/graph/generated"
 )
 
-const defaultPort = "8080"
+const defaultPort = "4003"
 
 func main() {
 	port := os.Getenv("PORT")

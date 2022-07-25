@@ -3,7 +3,9 @@ import { ApolloGateway, IntrospectAndCompose } from "@apollo/gateway";
 
 const subgraphs = [
   { name: 'users', url: 'http://localhost:4001/query' },
+  { name: 'cart', url: 'http://localhost:4003/query' },
   { name: 'products', url: 'http://localhost:4002/query' },
+
 ]
 
 const gateway = new ApolloGateway({

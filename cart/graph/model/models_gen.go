@@ -3,5 +3,21 @@
 package model
 
 type Cart struct {
-	ID string `json:"id"`
+	ID       string `json:"id"`
+	CartUser *User  `json:"cartUser"`
 }
+
+func (Cart) IsEntity() {}
+
+type NewCart struct {
+	UserID string `json:"userId"`
+}
+
+type User struct {
+	ID       string  `json:"id"`
+	Name     string  `json:"name"`
+	Carts    []*Cart `json:"carts"`
+	CartUser *User   `json:"cartUser"`
+}
+
+func (User) IsEntity() {}

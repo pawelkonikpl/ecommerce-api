@@ -9,16 +9,17 @@ type NewProduct struct {
 }
 
 type Product struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
-	Sku  string `json:"sku"`
+	ID        string `json:"id"`
+	Name      string `json:"name"`
+	Sku       string `json:"sku"`
+	CreatedAt string `json:"createdAt"`
 }
 
 func (Product) IsEntity() {}
 
 type User struct {
-	ID       string     `json:"id"`
-	Products []*Product `json:"products"`
+	ID   string `json:"id"`
+	Name string `json:"name"`
 }
 
 func (User) IsEntity() {}

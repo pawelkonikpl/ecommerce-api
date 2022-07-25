@@ -7,8 +7,8 @@ import (
 	"context"
 	"log"
 
-	"github.com/pawelkonikpl/ecommmerce-api/products/graph/generated"
-	"github.com/pawelkonikpl/ecommmerce-api/products/graph/model"
+	"github.com/pawelkonikpl/ecommerce-api/products/graph/generated"
+	"github.com/pawelkonikpl/ecommerce-api/products/graph/model"
 )
 
 // CreateProduct is the resolver for the createProduct field.
@@ -16,6 +16,7 @@ func (r *mutationResolver) CreateProduct(ctx context.Context, input model.NewPro
 	product := new(model.Product)
 	product.Name = input.Name
 	product.Sku = input.Sku
+	product.CreatedAt = "1"
 	_, err := r.DB.Model(product).Insert()
 	if err != nil {
 		log.Printf("Cannot create user %s", err)

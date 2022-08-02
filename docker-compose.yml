@@ -1,11 +1,12 @@
 # syntax=docker/dockerfile:1
 services:
   users-service:
+    container_name: user-service
     build:
       dockerfile: ./Dockerfile
       context: ./users
     ports:
-      - 4003:4003
+      - 4001:4001
     environment:
       - PORT=4001
       - PG_DB=ecommerce_api
@@ -16,7 +17,25 @@ services:
       - db
     restart: always
 
+  cart-service:
+    container_name: cart-service
+    build:
+      dockerfile: ./Dockerfile
+      context: ./cart
+    ports:
+      - 4003:4003
+    environment:
+      - PORT=4003
+      - PG_DB=ecommerce_api
+      - PG_PASSWORD=example
+      - PG_PORT=5432
+      - PG_USER=postgres
+    depends_on:
+      - db
+    restart: always
+
   products-service:
+    container_name: products-service
     build:
       dockerfile: ./Dockerfile
       context: ./products

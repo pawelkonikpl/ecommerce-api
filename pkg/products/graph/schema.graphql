@@ -1,0 +1,27 @@
+
+type Product @key(fields: "id"){
+  id: ID!
+  name: String!
+  sku: String!
+  user: User
+}
+
+extend type User @key(fields: "id"){
+  id: ID!
+  products: [Product]
+}
+
+
+type Query {
+  products: [Product!]!
+}
+
+input NewProduct {
+  userId: ID!
+  name: String!
+  sku: String!
+}
+
+type Mutation {
+  createProduct(input: NewProduct!): Product!
+}

@@ -1,0 +1,21 @@
+scalar Date
+
+type User @key(fields: "id") {
+  id: ID!
+  name: String!
+  birthDate: Date
+  street: String
+}
+
+
+type Query {
+  users: [User!]!
+}
+
+input NewUser {
+  name: String!
+}
+
+type Mutation {
+  createUser(input: NewUser!): User!
+}

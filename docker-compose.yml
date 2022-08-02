@@ -3,7 +3,7 @@ services:
   users-service:
     container_name: user-service
     build:
-      dockerfile: ./Dockerfile
+      dockerfile: products.Dockerfile
       context: ./users
     ports:
       - 4001:4001
@@ -20,7 +20,7 @@ services:
   cart-service:
     container_name: cart-service
     build:
-      dockerfile: ./Dockerfile
+      dockerfile: products.Dockerfile
       context: ./cart
     ports:
       - 4003:4003
@@ -37,7 +37,7 @@ services:
   products-service:
     container_name: products-service
     build:
-      dockerfile: ./Dockerfile
+      dockerfile: products.Dockerfile
       context: ./products
     ports:
       - 4002:4002
